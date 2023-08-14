@@ -2,13 +2,13 @@
 
 [Georgi Gerganov]() llama.cpp's main objective is to run the model using 4-bit quantization on a MacBook or personal laptops. 4-bit quantization is a technique for reducing the size of models so they can run on less powerful hardware. It also reduces the model sizes on disk—to 4GB for the 7B model and just under 8GB for the 13B one.
 
-The below content give ste-by-step approach to make the CUDA enabled phython wheel for llama.cpp
+The below content give ste-by-step approach to make the CUDA enabled phython wheel for llama.cpp, currently i am running them inside a docker container. 
 
 ## Steps to get the CUDA enabled python wheel for llama:
 
 **STEP 1**: Create the ubuntu 22.04 images using following command:
 
-`docker pull ubuntu:20.04`
+`docker pull ubuntu:20.04`  
 
 **STEP 2**: Once the images is pulled, create a container using following command:
 
@@ -21,6 +21,7 @@ Re-enter using following command:
 `docker exec -it <container_name> bash`
 
 **STEP 3**: Requirement gathering:
+
 ```
 $ apt-get -y update -qq && apt-get -y upgrade
 
@@ -54,7 +55,7 @@ You will notice something like this and MUST reboot the box:
 *** be loaded. ***
 *****************************************************************************
 
-**STEP 5**: Cross compile llama.cpp with CIDA
+**STEP 5**: Cross compile llama.cpp with CUDA
 ```
 $ cd llama.cpp/
 

@@ -59,13 +59,20 @@ $ mkdir build
 $ cd build
 
 $ cmake .. -DLLAMA_CUBLAS=ON -DCMAKE_CUDA_COMPILER:PATH=/usr/local/cuda-12.2/bin/nvcc
-NOTE: it is important to specify the UDA compiler path if its not in the rootfs. Other option is to add it to the PATH. My best option is to give as an argument to CMAKE.
+NOTE: it is important to specify the UDA compiler path if its not in the rootfs. Another option is to add it to the PATH. My best option is to give as an argument to CMAKE.
 
-$ readelf -d bin/main >>> To verify this is indeed a CUDA compiled ELF file.
+$ readelf -d bin/main >>> To verify this is indeed a CUDA compile ELF file.
 ```
 **STEP 6**: Time to make the python wheel
 ```
 $ CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCMAKE_CUDA_COMPILER:PATH=/usr/local/cuda-12.2/bin/nvcc" FORCE_CMAKE=1 pip install llama-cpp-python
 ```
+
+**STEP 7**: You must see the CUDA python version (testing)
+
+![CUDA_image](images/CUDA_python_version.png)
+
+In reality you should not see the above error message, it's because i do not have CUDA-GPU on my matching. 
+
 
 ## Next step is to have a Dockerfile to spawn the container directly. 

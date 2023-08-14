@@ -1,4 +1,8 @@
-# llama.cpp build with CUDA on Ubuntu
+# [llama.cpp](https://github.com/ggerganov/llama.cpp) build with CUDA on Ubuntu
+
+[Georgi Gerganov]() llama.cpp's main objective is to run the model using 4-bit quantization on a MacBook or personal laptops. 4-bit quantization is a technique for reducing the size of models so they can run on less powerful hardware. It also reduces the model sizes on disk—to 4GB for the 7B model and just under 8GB for the 13B one.
+
+The below content give ste-by-step approach to make the CUDA enabled phython wheel for llama.cpp
 
 ## Steps to get the CUDA enabled python wheel for llama:
 
